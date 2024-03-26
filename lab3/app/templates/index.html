@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class='mb-3'>Добавьте в приложение страницы, на которых отображаются </h1>
+<ul>
+    <li>Страница "Счётчик посещений"</li>
+    <li>Аутентификация пользователей</li>
+    <li>Секретная страница</li>
+</ul>
+{% if current_user.is_authenticated %}
+  Hi {{ current_user.login }}!
+{% endif %}
+{% endblock%}

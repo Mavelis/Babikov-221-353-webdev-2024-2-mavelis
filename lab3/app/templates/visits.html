@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class='mb-3'>Счетчик посещения </h1>
+<p>Вы посетили страницу {{ session.get('visits') }} количество раз</p>
+
+{% endblock%}
