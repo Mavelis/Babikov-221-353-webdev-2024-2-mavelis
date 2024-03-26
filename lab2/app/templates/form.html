@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Форма</h1>
+<form class="row" method='post'>
+    <div class="col-6">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Тема</label>
+            <input  name='theme' type="text" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Сообщение</label>
+            <textarea name='message' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" id="button" value="Отправить">
+        </div>
+    </div>
+</form>
+{% if request.method=='POST' %} 
+<h1>Данные формы</h1>
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Значение</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for key, value in request.form.items()%}
+        <tr>
+            <td>{{key}}</th>
+            <td>{{value}}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock%}

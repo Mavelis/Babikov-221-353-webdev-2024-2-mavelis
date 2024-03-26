@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <h1>Phone Number Form</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="form-control {% if is_invalid %}is-invalid{% endif %}" id="phone_number" name="phone_number" value="{{ phone_number }}">
+                {% if error_message %}
+                <div class="invalid-feedback">
+                    {{ error_message }}
+                </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Check</button>
+        </form>
+        {% if formatted_phone_number %}
+        <div class="mt-3">
+            <h3>Formatted Phone Number</h3>
+            <p>{{ formatted_phone_number }}</p>
+        </div>
+        {% endif %}
+
+{% endblock%}

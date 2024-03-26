@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Калькулятор</h1>
+    <form class="d-flex">
+        <input  name='num1' type="text" class="form-control" id="number1" value={{request.args.get('num1','')}}>
+            <select class="form-select" name="operator" aria-label="Default select example">
+                <option selected disabled>Выберите оператор</option>
+                {% for oper in opers %}
+                    <option {%if request.args.get('operator') == oper %}selected{% endif%}>{{oper}}</option>
+                {% endfor %}
+            </select>
+        <input  name='num2' type="text" class="form-control" id="number2" value={{request.args.get('num2','')}}>
+        <input type="submit" class="btn btn-primary" id="button" value="=">
+        {% if result %}
+        <input disabled name='result' type="text" class="form-control" id="result" value={{result}}>
+        {% endif %}
+    </form>
+    {%if error %}
+    {{error}}
+    {% endif %}
+{% endblock%}
