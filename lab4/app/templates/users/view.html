@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> User Detalis </h1>
+<dl class="row">
+  <dt class="col-sm-3">ID:</dt>
+  <dd class="col-sm-9">{{ user.id }}</dd>
+
+  <dt class="col-sm-3">login:</dt>
+  <dd class="col-sm-9">{{ user.login }}</dd>
+
+  <dt class="col-sm-3">First Name:</dt>
+  <dd class="col-sm-9">{{ user.first_name }}</dd>
+
+  <dt class="col-sm-3">Last Name:</dt>
+  <dd class="col-sm-9">{{ user.last_name }}</dd>
+
+</dl>
+
+{% endblock%}

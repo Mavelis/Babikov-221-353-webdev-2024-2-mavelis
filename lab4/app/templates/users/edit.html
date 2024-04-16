@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Edit User </h1>
+<form method="post" action="{{ url_for('edit_user', user_id=user.id) }}">
+  <div class="mb-3">
+      <label for="loginInput" class="form-label">Login</label>
+      <input type="text" class="form-control" id="loginInput" name="login" value="{{ user.login }}">
+  </div>
+  <div class="mb-3">
+      <label for="firstNameInput" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="firstNameInput" name="first_name" value="{{ user.first_name }}">
+  </div>
+  <div class="mb-3">
+      <label for="lastNameInput" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lastNameInput" name="last_name" value="{{ user.last_name }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock%}
