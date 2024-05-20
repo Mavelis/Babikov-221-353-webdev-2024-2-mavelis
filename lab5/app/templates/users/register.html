@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block content %}
+<form method="post">
+  <div class="mb-3">
+    <label for="loginInput" class="form-label">Логин</label>
+    <input
+      type="text"
+      class="form-control"
+      id="loginInput"
+      name="loginInput"
+      placeholder="Логин"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="passwordInput" class="form-label">Пароль</label>
+    <input
+      type="password"
+      class="form-control"
+      id="passwordInput"
+      name="passwordInput"
+      placeholder="Пароль"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="firstNameInput" class="form-label">Имя</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstNameInput"
+      name="firstNameInput"
+      placeholder="Имя"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="lastNameInput" class="form-label">Фамилия</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastNameInput"
+      name="lastNameInput"
+      placeholder="Фамилия"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="middleNameInput" class="form-label">Отчество</label>
+    <input
+      type="text"
+      class="form-control"
+      id="middleNameInput"
+      name="middleNameInput"
+      placeholder="Отчество"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="roleChose" class="form-label">Роль</label>
+    <select class="form-select" name="choice">
+      {%for role in roles%}
+      <option value={{role.id}}>{{role.name}}</option>
+      {%endfor%}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+{% endblock %}

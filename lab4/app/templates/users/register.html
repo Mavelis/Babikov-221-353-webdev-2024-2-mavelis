@@ -1,32 +1,43 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <form method="post">
   <div class="mb-3">
     <label for="loginInput" class="form-label">Логин</label>
     <input
       type="text"
-      class="form-control"
+      class="form-control {% if errors and errors.login %}is-invalid{% endif %}"
       id="loginInput"
       name="loginInput"
       placeholder="Логин"
       required
     />
+    {% if errors and errors.login %}
+      <div class="invalid-feedback">
+        {{ errors.login }}
+      </div>
+    {% endif %}
   </div>
   <div class="mb-3">
     <label for="passwordInput" class="form-label">Пароль</label>
     <input
       type="password"
-      class="form-control"
+      class="form-control {% if errors and errors.password %}is-invalid{% endif %}"
       id="passwordInput"
       name="passwordInput"
       placeholder="Пароль"
       required
     />
+    {% if errors and errors.password %}
+      <div class="invalid-feedback">
+        {{ errors.password }}
+      </div>
+    {% endif %}
   </div>
   <div class="mb-3">
     <label for="firstNameInput" class="form-label">Имя</label>
     <input
       type="text"
-      class="form-control"
+      class="form-control {% if errors and errors.first_name %}is-invalid{% endif %}"
       id="firstNameInput"
       name="firstNameInput"
       placeholder="Имя"
@@ -37,7 +48,7 @@
     <label for="lastNameInput" class="form-label">Фамилия</label>
     <input
       type="text"
-      class="form-control"
+      class="form-control {% if errors and errors.last_name %}is-invalid{% endif %}"
       id="lastNameInput"
       name="lastNameInput"
       placeholder="Фамилия"
@@ -48,7 +59,7 @@
     <label for="middleNameInput" class="form-label">Отчество</label>
     <input
       type="text"
-      class="form-control"
+      class="form-control {% if errors and errors.middle_name %}is-invalid{% endif %}"
       id="middleNameInput"
       name="middleNameInput"
       placeholder="Отчество"
